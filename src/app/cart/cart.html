@@ -1,0 +1,29 @@
+<h2>My Cart</h2>
+
+
+@if (cartItems.length === 0){
+    <p> Your cart is empty.</p>
+}@else{
+    @for (item of cartItems; track item.id){
+        <div>
+            <h3>{{item.name}}</h3>
+            <p>Price: {{item.cost}} * {{item.quantity}}</p>
+            <button (click)="decrease(item.id)">-</button>
+            <span>{{item.quantity}}</span>
+            <button (click)="increase(item.id)">+</button>
+            <button (click)="remove(item.id)">Remove</button>
+
+             </div>
+
+        }
+
+        <hr>
+            <h2>Total:{{totalCost}}</h2>
+
+
+    }
+
+
+
+
+    

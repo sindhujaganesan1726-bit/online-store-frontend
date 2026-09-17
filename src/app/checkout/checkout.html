@@ -1,0 +1,20 @@
+<h1>Checkout</h1>
+
+@if(!orderPlaced){
+    @if (cartItems.length === 0){
+        <p>Your cart is empty.</p>
+    }@else {
+        @for (item of cartItems; track item.id){
+            <p>{{item.name}} - {{item.cost}} * {{item.quantity}}</p>
+        }
+        <h3>Total: {{totalcost}}</h3>
+        <input [(ngModel)]="name" placeholder="Your name">
+        <br>
+        <input [(ngModel)]="address" placeholder="Delivery address">
+        <br>
+        <button (click)="placeOrder()">Place Order</button>
+    }
+    }@else{
+        <h2>Thank you, {{name}}! Your order has been placed</h2>
+    }
+
