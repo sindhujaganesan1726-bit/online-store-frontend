@@ -1,0 +1,7 @@
+<h1>Register</h1>
+<input [(ngModel)]="username" type="password" placeholder="Username">
+<br>
+<input [(ngModel)]="password" type="password" placeholder="Password">
+<br>
+<button (click)="onRegister()">Register</button>
+<p style="color:red;">{{errorMessage}}</p>
