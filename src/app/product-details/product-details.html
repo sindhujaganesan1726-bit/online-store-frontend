@@ -1,10 +1,15 @@
-<h1>Product Details</h1>
+<div class="details-container">
+    <h1>Product Details</h1>
 
-@if (product){
-    <img [src]="product.image" class="img-fluid" alt="{{product.name}}" style="max-width: 300px;"/>
-    <h2>{{product.name}}</h2>
-    
-    <p>Price :{{product.cost}}</p>
+    @if(product){
+        <div class="details-card">
+          <img [src]="product.image" class="details-img" alt="{{product.name}}"/> 
+          <div class="details-info">
+            <h2>{{product.name}}</h2>
+            <p class="details-price">Price:{{product.cost}}</p>
+            <button class="btn btn-primary details-btn" (click)="addToCart()">Add to cart</button>
+          </div> 
+        </div>
+    }
 
-    <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
-}
+</div>

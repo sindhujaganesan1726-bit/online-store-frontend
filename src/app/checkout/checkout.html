@@ -1,20 +1,46 @@
-<h1>Checkout</h1>
+<div class="checkout-container">
+  <h1>Checkout</h1>
 
-@if(!orderPlaced){
-    @if (cartItems.length === 0){
-        <p>Your cart is empty.</p>
-    }@else {
-        @for (item of cartItems; track item.id){
-            <p>{{item.name}} - {{item.cost}} * {{item.quantity}}</p>
+  @if (!orderPlaced) {
+    @if (cartItems.length === 0) {
+      <p class="empty-cart">Your cart is empty.</p>
+    } @else {
+      <div class="checkout-card">
+        <h3 class="section-title">Order Summary</h3>
+
+        @for (item of cartItems; track item.id) {
+          <div class="summary-row">
+            <span>{{item.name}}</span>
+            <span>₹{{item.cost}} × {{item.quantity}}</span>
+          </div>
         }
-        <h3>Total: {{totalcost}}</h3>
-        <input [(ngModel)]="name" placeholder="Your name">
-        <br>
-        <input [(ngModel)]="address" placeholder="Delivery address">
-        <br>
-        <button (click)="placeOrder()">Place Order</button>
-    }
-    }@else{
-        <h2>Thank you, {{name}}! Your order has been placed</h2>
-    }
 
+        <div class="summary-total">
+          <span>Total</span>
+          <span>₹{{totalcost}}</span>
+        </div>
+      </div>
+
+      <div class="checkout-card">
+        <h3 class="section-title">Delivery Details</h3>
+
+        <div class="form-group">
+          <label>Name</label>
+          <input [(ngModel)]="name" placeholder="Your name" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label>Address</label>
+          <input [(ngModel)]="address" placeholder="Delivery address" class="form-input">
+        </div>
+
+        <button (click)="placeOrder()" class="order-btn">Place Order</button>
+      </div>
+    }
+  } @else {
+    <div class="checkout-card success-card">
+      <h2>Thank you, {{name}}! 🎉</h2>
+      <p>Your order has been placed.</p>
+    </div>
+  }
+</div>

@@ -1,19 +1,23 @@
 <div class="container">
-<h1>Welcome to my Online Store</h1>
-        
-        
 
-<h2>Cart:{{cartCount}}</h2>
+<div class="store-header">
+     <h1>Welcome to my Online Store</h1>
+
+     <span class="cart-badge">
+    <i class="bi bi-cart-fill"></i>
+    Cart:{{cartCount}}
+    </span>
+</div>
+
+
       
-  
-     
-     <hr>
+<hr>
+
+<div class="product-grid">
  @for
   (product of products; track product.id) { 
      <app-product-cart [product]="product"></app-product-cart>
-     
-    
- }
-
+      }
+</div>
 
 </div>
