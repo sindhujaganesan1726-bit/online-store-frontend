@@ -1,59 +1,74 @@
-# OnlineStore
+# Online Store – Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.23.
+Single-page e-commerce app built with Angular. Browse products, view details, manage a cart, register and log in, and place an order. It talks to a Spring Boot REST API with JWT authentication.
 
-## Development server
+- **Live site:** https://online-store-frontend-three.vercel.app
+- **Backend repo:** https://github.com/sindhujaganesan1726-bit/online-store-backend
 
-To start a local development server, run:
+> The backend and database run on free hosting tiers, so the first load after a period of inactivity can take up to about a minute.
+
+## Screenshots
+
+<!-- TODO: add screenshots to a /screenshots folder, then uncomment -->
+<!-- ![Home](screenshots/home.png) -->
+<!-- ![Cart](screenshots/cart.png) -->
+<!-- ![Checkout](screenshots/checkout.png) -->
+
+## Tech Stack
+
+- Angular (standalone components, HttpClient, Router)
+- TypeScript, HTML, CSS
+- Bootstrap and Bootstrap Icons
+- JWT-based authentication (token stored in the browser)
+- Deployed on Vercel
+
+## Features
+
+- **Home:** responsive 3-per-row product grid with a live cart counter
+- **Product details:** larger view of a product with Add to Cart
+- **Cart:** increase or decrease quantity, remove items, running total
+- **Checkout:** order summary, delivery name and address, place order
+- **Login and Register:** clean centered forms with error messages
+- Environment-based API configuration for local and production
+
+## Project Structure
+
+```
+src/app
+├── home/              # product grid and cart count
+├── product-cart/      # reusable product card
+├── product-details/   # single product page
+├── cart/              # cart page
+├── checkout/          # checkout and order placement
+├── login/  register/  # authentication pages
+└── services/          # auth and cart services
+src/environments/      # API URL for development and production
+```
+
+## Run Locally
+
+**Prerequisites:** Node.js, Angular CLI, and the [backend](https://github.com/sindhujaganesan1726-bit/online-store-backend) running on `http://localhost:8080`.
 
 ```bash
+git clone https://github.com/sindhujaganesan1726-bit/online-store-frontend.git
+cd online-store-frontend
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open http://localhost:4200
 
-## Code scaffolding
+The local API URL is set in `src/environments/environment.development.ts` and the production URL in `src/environments/environment.ts`.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Deployment
 
-```bash
-ng generate component component-name
-```
+Deployed on Vercel from the `main` branch.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Build output directory: `dist/<project-name>/browser`
+- `vercel.json` rewrites all routes to `index.html`, so refreshing on pages like `/cart` works
 
-```bash
-ng generate --help
-```
+## Author
 
-## Building
+Sindhu – Java Full Stack Developer
+GitHub: [sindhujaganesan1726-bit](https://github.com/sindhujaganesan1726-bit)
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
