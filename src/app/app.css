@@ -3,14 +3,14 @@
     gap: 20px;
     align-items: center;
     padding: 15px 20px;
-    background-color: white;
+    background-color: rgb(144, 140, 140);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 .nav-link{
     text-decoration: none;
-    color: #f3149e;
+    color: #0a090e;
     font-weight: 800;
-    font-size: 0.99rem;
+    font-size: 1.5rem;
 }
 .nav-link:hover{
     color:#0d6efd;
